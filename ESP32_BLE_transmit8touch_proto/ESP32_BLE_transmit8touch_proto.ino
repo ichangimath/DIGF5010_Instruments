@@ -18,7 +18,7 @@ const int threshold = 20;
 String touchVal0, touchVal3, touchVal4, touchVal5;
 String touchVal6, touchVal7, touchVal8, touchVal9;
 
-const char* datainChar = "11111111";
+const char* datainChar = "111";
 
 
 void setup() {
@@ -41,39 +41,22 @@ void setup() {
   BLEDevice::startAdvertising();
   while (1)
   {
-    if (touchRead(capPin0) < threshold)
-      touchVal0 = "2";
-    else
-      touchVal0 = "1";
     if (touchRead(capPin3) < threshold)
       touchVal3 = "2";
     else
       touchVal3 = "1";
-    if (touchRead(capPin4) < threshold)
-      touchVal4 = "2";
-    else
-      touchVal4 = "1";
-    if (touchRead(capPin5) < threshold)
-      touchVal5 = "2";
-    else
-      touchVal5 = "1";
+
+
     if (touchRead(capPin6) < threshold)
       touchVal6 = "2";
     else
       touchVal6 = "1";
-    if (touchRead(capPin7) < threshold)
-      touchVal7 = "2";
-    else
-      touchVal7 = "1";
-    if (touchRead(capPin8) < threshold)
-      touchVal8 = "2";
-    else
-      touchVal8 = "1";
+
     if (touchRead(capPin9) < threshold)
       touchVal9 = "2";
     else
       touchVal9 = "1";
-    String temp = touchVal0 + touchVal3 + touchVal4 + touchVal5 + touchVal6 + touchVal7 + touchVal8 + touchVal9;
+    String temp = touchVal3 + touchVal9 + touchVal6;
     datainChar = temp.c_str();
     pCharacteristic->setValue(datainChar);
     delay(200);
